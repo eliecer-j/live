@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ver Fútbol en Vivo | Transmisión en Directo HD | TodoFutbol</title>
+  
+  <!-- Meta tags SEO -->
+  <meta name="description" content="Disfruta del fútbol en vivo con la mejor calidad HD. Transmisiones en directo de LaLiga, Champions League, Premier League y más. Sin cortes, gratis y en español.">
+  <meta name="keywords" content="fútbol en vivo, streaming fútbol, ver partidos online, transmisión en directo, fútbol gratis, live football">
+  <meta name="author" content="TodoFutbol">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ver Fútbol en Vivo | Transmisión HD">
+  <meta property="og:description" content="Mira los mejores partidos de fútbol en vivo y en HD. Champions League, LaLiga, Premier League y más.">
+  <meta property="og:image" content="URL-DE-TU-IMAGEN">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ver Fútbol en Vivo | Transmisión HD">
+  <meta name="twitter:description" content="Mira los mejores partidos de fútbol en vivo y en HD">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="section pt-3" style="background: #0a0a0a;">
+    <div class="container">
+      <!-- Contenedor del iframe con título SEO -->
+      <div class="content mb-4">
+        <h1 class="title is-4 has-text-white-ter mb-5">Transmisión en Vivo</h1>
+        <p class="subtitle is-6 has-text-grey-lighter">Calidad HD garantizada | Sin cortes | Múltiples servidores</p>
+      </div>
+
+      <div class="container is-flex is-justify-content-center mb-5 iframe_video">
+        <!-- El iframe se insertará aquí -->
+      </div>
+
+      <!-- Contenido SEO -->
+      <div class="content mt-6" style="border-top: 1px solid #2b2b2b; padding-top: 2rem;">
+        <div class="columns">
+          <div class="column">
+            <h2 class="title is-5 has-text-white-ter mb-3">Información del Partido</h2>
+            <div class="match-info has-text-grey-lighter">
+              <!-- La información del partido se insertará aquí dinámicamente -->
+            </div>
+          </div>
+          
+          <div class="column">
+            <h2 class="title is-5 has-text-white-ter mb-3">Características de la Transmisión</h2>
+            <ul class="has-text-grey-lighter" style="list-style: none;">
+              <li><i class="fas fa-check has-text-success mr-2"></i> Calidad HD garantizada</li>
+              <li><i class="fas fa-check has-text-success mr-2"></i> Múltiples servidores disponibles</li>
+              <li><i class="fas fa-check has-text-success mr-2"></i> Compatible con todos los dispositivos</li>
+              <li><i class="fas fa-check has-text-success mr-2"></i> Transmisión sin lag</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="notification is-dark mt-4" style="background: #1a1a1a; border: 1px solid #2b2b2b;">
+          <h3 class="title is-6 has-text-white-ter mb-2">Sobre la Transmisión en Vivo</h3>
+          <p class="has-text-grey-lighter is-size-7">
+            Disfruta del partido en alta definición con nuestra plataforma de streaming deportivo. 
+            Ofrecemos la mejor experiencia para ver fútbol online con comentarios en español latino, 
+            estadísticas en tiempo real y calidad HD. Compatible con Smart TV, móviles, tablets y computadoras.
+          </p>
+        </div>
+
+        <div class="tags mt-4">
+          <span class="tag is-dark">Fútbol HD</span>
+          <span class="tag is-dark">Streaming Deportivo</span>
+          <span class="tag is-dark">Ver Partido Online</span>
+          <span class="tag is-dark">Transmisión en Vivo</span>
+          <span class="tag is-dark">Live Football</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    body {
+      background-color: #0a0a0a;
+    }
+    
+    .iframe-container {
+      background: #000;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .notification {
+      border-radius: 4px;
+    }
+
+    .tag {
+      border-radius: 2px;
+    }
+  </style>
+
+  <script>
+    const eventoGuardado = JSON.parse(sessionStorage.getItem("data"));
+
+    const vide_frame = () => {
+      const iframe_ = document.querySelector('.iframe_video');
+      const matchInfo = document.querySelector('.match-info');
+      iframe_.innerHTML = '';
+      const urlParams = new URLSearchParams(window.location.search);
+      let id_url = urlParams.get('v');
+
+      eventoGuardado.forEach(evento => {
+        if (evento.id == id_url) {
+          let div_video = `
+            <div class="iframe-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 90%;">
+              <iframe
+                src="${evento.link}" 
+                frameborder="0" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 60%;"
+                allowfullscreen
+                allow="autoplay; fullscreen">
+              </iframe>
+            </div>
+          `;
+          iframe_.innerHTML += div_video;
+
+          // Agregar información del partido para SEO
+          matchInfo.innerHTML = `
+            <h3 class="is-size-6 has-text-white-ter mb-2">${evento.title || 'Partido en Vivo'}</h3>
+            <p class="has-text-grey-lighter is-size-7">
+              <i class="fas fa-calendar-alt mr-2"></i> ${new Date().toLocaleDateString('es-ES')}
+              <br>
+              <i class="fas fa-clock mr-2"></i> ${evento.time || 'En Vivo'}
+              <br>
+              <i class="fas fa-tag mr-2"></i> ${evento.category || 'Fútbol Internacional'}
+            </p>
+          `;
+        }
+      });
+    }
+
+    try {
+      vide_frame();
+    } catch (error) {
+      console.error('Error:', error);
+      document.querySelector('.iframe_video').innerHTML = `
+        <div class="notification is-danger">
+          <p class="has-text-centered">
+            <i class="fas fa-exclamation-triangle mb-2" style="font-size: 2rem;"></i>
+            <br>
+            Error en el servidor. Por favor, intente más tarde.
+          </p>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

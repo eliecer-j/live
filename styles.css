@@ -1,0 +1,118 @@
+/* Custom styles to enhance Bulma */
+body {
+  background-color: #121212;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.section {
+  background-color: #121212;
+}
+
+.title, .subtitle {
+  color: #ffffff;
+}
+
+/* Event item styling */
+.event-item {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.event-item:hover {
+  border-color: #555;
+  background-color: #252525;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.event-title {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.event-item:hover .event-title {
+  color: #ff3860;
+}
+
+/* Live indicator styling */
+.live-tag {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  margin-right: 5px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Button styling */
+.button.is-dark {
+  background-color: #2a2a2a;
+}
+
+.button.is-dark:hover {
+  background-color: #3a3a3a;
+}
+
+.button.is-dark.is-outlined {
+  border-color: #444;
+  color: #ccc;
+}
+
+.button.is-dark.is-outlined:hover {
+  background-color: #333;
+  color: white;
+}
+
+/* Tag styling */
+.tag.is-dark {
+  background-color: #333;
+  color: #aaa;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .column.is-narrow {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .has-text-weight-bold.is-size-4 {
+    font-size: 1.2rem !important;
+  }
+}
+
+
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.fa-circle {
+    animation: pulse 1.5s ease infinite;
+}

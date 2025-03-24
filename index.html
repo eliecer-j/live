@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fútbol en Vivo | Partidos de Hoy | TodoFutbol HD</title>
+
+  <!-- Meta tags SEO -->
+  <meta name="description" content="Ver fútbol en vivo gratis. Todos los partidos de hoy en HD: Champions League, LaLiga, Premier League, Copa Libertadores. Transmisiones en directo sin cortes.">
+  <meta name="keywords" content="fútbol en vivo, partidos de hoy, ver fútbol online, streaming fútbol, transmisión en directo, fútbol gratis">
+  <meta name="author" content="TodoFutbol">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://todofutbol.com/">
+  <meta property="og:title" content="Fútbol en Vivo | Partidos de Hoy">
+  <meta property="og:description" content="Ver fútbol en vivo gratis. Todos los partidos de hoy en HD.">
+  <meta property="og:image" content="URL-DE-TU-IMAGEN">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fútbol en Vivo | Partidos de Hoy">
+  <meta name="twitter:description" content="Ver fútbol en vivo gratis. Todos los partidos de hoy en HD.">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://todofutbol.com/">
+</head>
+<body>
+  <section class="section pt-2" style="background: #0a0a0a;">
+    <div class="container">
+      <!-- Header mejorado con microdata -->
+      <div itemscope itemtype="http://schema.org/SportsEvent">
+        <div class="level has-background-black-bis p-3 mb-4" style="border-radius: 6px; border: 1px solid #2b2b2b;">
+          <div class="level-left">
+            <div class="level-item">
+              <span class="icon has-text-danger mr-2">
+                <i class="fas fa-calendar-alt"></i>
+              </span>
+              <h1 class="title is-5 has-text-white mb-0" itemprop="name">Cronograma De Hoy</h1>
+            </div>
+          </div>
+          <div class="level-right">
+            <div class="level-item">
+              <span class="icon has-text-info mr-2">
+                <i class="fas fa-clock"></i>
+              </span>
+              <span id="reloj" class="subtitle is-5 has-text-grey-lighter mb-0"></span>
+            </div>
+            <div class="level-item ml-4">
+              <span class="icon has-text-success mr-2">
+                <i class="fas fa-calendar-day"></i>
+              </span>
+              <span id="fecha" class="subtitle is-6 has-text-grey-lighter mb-0" itemprop="startDate"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Events List Container -->
+        <div class="events-list" style="background: #0a0a0a; border-radius: 6px; padding: 0.5rem;">
+          <!-- Los eventos se insertarán aquí desde JavaScript -->
+        </div>
+
+        <!-- Contenido SEO -->
+        <div class="content mt-6 px-3" style="border-top: 1px solid #2b2b2b; padding-top: 2rem;">
+          <!--<div class="columns">
+            <div class="column">
+              <h2 class="title is-5 has-text-white-ter mb-3">Fútbol en Vivo Hoy</h2>
+              <p class="has-text-grey-lighter is-size-7">
+                Disfruta de todos los partidos de fútbol en vivo y en directo. Transmisiones HD de las mejores 
+                ligas: LaLiga, Premier League, Champions League, Copa Libertadores y más competiciones internacionales.
+              </p>
+              <div class="tags mt-3">
+                <span class="tag is-dark">LaLiga</span>
+                <span class="tag is-dark">Premier League</span>
+                <span class="tag is-dark">Champions League</span>
+                <span class="tag is-dark">Copa Libertadores</span>
+              </div>
+            </div>
+            
+            <div class="column">
+              <h2 class="title is-5 has-text-white-ter mb-3">Características Premium</h2>
+              <ul class="has-text-grey-lighter is-size-7" style="list-style: none;">
+                <li><i class="fas fa-check has-text-success mr-2"></i> Calidad HD garantizada</li>
+                <li><i class="fas fa-check has-text-success mr-2"></i> Sin cortes ni interrupciones</li>
+                <li><i class="fas fa-check has-text-success mr-2"></i> Múltiples servidores disponibles</li>
+                <li><i class="fas fa-check has-text-success mr-2"></i> Compatible con todos los dispositivos</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="columns mt-4">
+            <div class="column">
+              <h3 class="title is-6 has-text-white-ter mb-2">Competiciones Destacadas</h3>
+              <div class="tags" style="gap: 0.3rem;">
+                <span class="tag is-dark is-small">Mundial 2026</span>
+                <span class="tag is-dark is-small">Copa América</span>
+                <span class="tag is-dark is-small">Europa League</span>
+                <span class="tag is-dark is-small">Serie A</span>
+                <span class="tag is-dark is-small">Bundesliga</span>
+                <span class="tag is-dark is-small">Ligue 1</span>
+              </div>
+            </div>
+            
+            <div class="column">
+              <h3 class="title is-6 has-text-white-ter mb-2">Equipos Populares</h3>
+              <div class="tags" style="gap: 0.3rem;">
+                <span class="tag is-dark is-small">Real Madrid</span>
+                <span class="tag is-dark is-small">Barcelona</span>
+                <span class="tag is-dark is-small">Manchester City</span>
+                <span class="tag is-dark is-small">PSG</span>
+              </div>
+            </div>
+          </div>
+
+          <article class="message is-dark mt-4">
+            <div class="message-body has-text-grey-lighter" style="background: #1a1a1a; border-color: #2b2b2b;">
+              <h4 class="title is-6 has-text-white-ter mb-2">¿Por qué elegir TodoFutbol?</h4>
+              <p class="is-size-7">
+                Ofrecemos la mejor experiencia para ver fútbol online. Transmisiones en HD, 
+                múltiples servidores, comentarios en español latino y estadísticas en tiempo real. 
+                Disfruta del fútbol en vivo desde cualquier dispositivo.
+              </p>
+            </div>
+          </article>
+
+          <footer class="mt-4">
+            <p class="has-text-grey is-size-7">
+              Actualización en tiempo real de todos los partidos. Programación completa de fútbol en vivo, 
+              eventos deportivos y competiciones internacionales. La mejor plataforma para ver fútbol online.
+            </p>
+          </footer>
+        </div>-->
+      </div>
+    </div>
+  </section>
+
+  <style>
+    body {
+      background-color: #0a0a0a;
+    }
+    
+    .section {
+      background-color: #0a0a0a;
+    }
+
+    .events-list .box {
+      transition: transform 0.2s ease;
+      margin-bottom: 0.5rem;
+    }
+
+    .events-list .box:hover {
+      transform: translateX(2px);
+      cursor: pointer;
+    }
+
+    .button.is-small {
+      transition: transform 0.2s ease;
+    }
+
+    .button.is-small:hover {
+      transform: scale(1.05);
+    }
+
+    .tag {
+      border-radius: 2px !important;
+    }
+
+    #reloj, #fecha {
+      font-family: monospace;
+      letter-spacing: 0.5px;
+    }
+  </style>
+
+  <!-- Scripts -->
+  <script>
+    function actualizarRelojYFecha() {
+      const ahora = new Date();
+      
+      const hora = ahora.getHours().toString().padStart(2, '0');
+      const minutos = ahora.getMinutes().toString().padStart(2, '0');
+      const segundos = ahora.getSeconds().toString().padStart(2, '0');
+      document.getElementById('reloj').textContent = `${hora}:${minutos}:${segundos}`;
+      
+      const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const fechaFormateada = ahora.toLocaleDateString('es-ES', opciones);
+      document.getElementById('fecha').textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+    }
+
+    setInterval(actualizarRelojYFecha, 1000);
+    actualizarRelojYFecha();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
