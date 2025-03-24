@@ -113,7 +113,7 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?created_at=g
 
 function data_id(v){
     sessionStorage.setItem("data", JSON.stringify(arr));
-    window.location.href = `live.html?v=${v}`;
+    window.open(`live.html?v=${v}`)
         
     }
 
