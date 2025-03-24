@@ -111,6 +111,19 @@
       const urlParams = new URLSearchParams(window.location.search);
       let id_url = urlParams.get('v');
 
+      if(!eventoGuardado.some(item => item.id == id_url)){
+        document.querySelector('.iframe_video').innerHTML = `
+        <div class="notification is-danger">
+          <p class="has-text-centered">
+            <i class="fas fa-exclamation-triangle mb-2" style="font-size: 2rem;"></i>
+            <br>
+            ID de live no existe. Por favor, intente más tarde.
+          </p>
+        </div>
+      `;
+      return
+      }
+
       eventoGuardado.forEach(evento => {
         if (evento.id == id_url) {
           let div_video = `
