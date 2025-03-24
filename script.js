@@ -103,6 +103,7 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?created_at=g
         eventsList.innerHTML += `
             <div class="mt-6 py-4" style="border-top: 1px solid #363636;">
                 <div class="content has-text-grey-lighter" style="font-size: 0.9rem;">
+                    <h2 class="title is-5 has-text-white-ter mb-3">TodoFutbol HD ⚽️</h2>
                     <h2 class="title is-5 has-text-white-ter mb-3">Fútbol en Vivo y Deportes Online 2024</h2>
                     
                     <div class="columns">
