@@ -5,7 +5,7 @@ const tomorrow = new Date();
 let arr = []
 tomorrow.setDate(tomorrow.getDate() + 1);
 const tomorrowStr = tomorrow.toISOString().split("T")[0];
-fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?created_at=gte.${today}&created_at=lt.${tomorrowStr}&order=time.asc`, { headers })
+fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.asc`, { headers })
     .then(response => response.json())
     .then(data => {
         console.log(data.length);
