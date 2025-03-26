@@ -2,9 +2,9 @@
 
 
 let h = new Date();
-let hora =  h.getHours().toString() + ':'+ h.getMinutes().toString()
+let hora =  parseInt(h.getHours().toString())
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-let hora_end = parseInt(h.getHours() + 2) + ':' + h.getMinutes().toString()
+let hora_end = parseInt(h.getHours() + 2)
 fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.asc`, { headers })
     .then(response => response.json())
     .then(data => {
@@ -72,7 +72,7 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.a
                             </span> 
                             
                                     `}
-                                ${parseInt(evento.time) >= parseInt(hora) && parseInt(evento.time) <= parseInt(hora_end) ? `
+                                ${parseInt(evento.time) == hora && parseInt(evento.time) < hora_end ? `
                                     <span class="tag is-danger is-small py-0" 
                                         style="height: 1.25em; 
                                                font-size: 0.65rem;
@@ -117,7 +117,7 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.a
 
 function data_id(v){
     sessionStorage.setItem("data", JSON.stringify(arr));
-    window.open(`live.html?v=${v}`)
+    window.location.href = `live.html?v=${v}`
         
     }
 
