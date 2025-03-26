@@ -1,14 +1,11 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         const headers = { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndidmttZWtkamJhcHR0c2V5cnB4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0MjYxNjU4MywiZXhwIjoyMDU4MTkyNTgzfQ.vAWWknSAq4pHIuIlisyJzH8cOGQw44ceGsDxBDprp3w', "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndidmttZWtkamJhcHR0c2V5cnB4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0MjYxNjU4MywiZXhwIjoyMDU4MTkyNTgzfQ.vAWWknSAq4pHIuIlisyJzH8cOGQw44ceGsDxBDprp3w" }
-const today = new Date().toISOString().split("T")[0]; // Obtiene YYYY-MM-DD
-const tomorrow = new Date();
-
-let arr = []
-tomorrow.setDate(tomorrow.getDate() + 1);
-const tomorrowStr = tomorrow.toISOString().split("T")[0];
+let hora =  h.getHours().toString() + ':'+ h.getMinutes().toString()
+let hora_end = parseInt(h.getHours() + 2) + ':' + h.getMinutes().toString()
 fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.asc`, { headers })
     .then(response => response.json())
     .then(data => {
         console.log(data.length);
+        setTimeout(hora, 1000)
         arr = data
         if (data.length === 0) {  // Verificamos si no hay datos
             document.querySelector('.events-list').innerHTML = `
@@ -68,7 +65,7 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.a
                             </span> 
                             
                                     `}
-                                ${evento.islive ? `
+                                ${hora >= evento.time && evento.time <= hora_end ? `
                                     <span class="tag is-danger is-small py-0" 
                                         style="height: 1.25em; 
                                                font-size: 0.65rem;
