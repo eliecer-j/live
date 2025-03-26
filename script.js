@@ -3,7 +3,7 @@
 
 function update_hora(){
   let h = new Date();
-  let hora =  parseInt(h.getHours().toString())
+  let hora =  h.toLocaleTimeString();
   return hora
 }
 
