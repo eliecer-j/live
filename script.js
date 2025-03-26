@@ -11,6 +11,7 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.a
         console.log(data.length);
         
         console.log(h, hora)
+        console.log(2 + 2)
         arr = data
         if (data.length === 0) {  // Verificamos si no hay datos
             document.querySelector('.events-list').innerHTML = `
