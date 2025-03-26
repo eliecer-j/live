@@ -1,10 +1,16 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 const headers = { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndidmttZWtkamJhcHR0c2V5cnB4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0MjYxNjU4MywiZXhwIjoyMDU4MTkyNTgzfQ.vAWWknSAq4pHIuIlisyJzH8cOGQw44ceGsDxBDprp3w', "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndidmttZWtkamJhcHR0c2V5cnB4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0MjYxNjU4MywiZXhwIjoyMDU4MTkyNTgzfQ.vAWWknSAq4pHIuIlisyJzH8cOGQw44ceGsDxBDprp3w" }
 
 
-let h = new Date();
-let hora =  parseInt(h.getHours().toString())
+funtion update_hora(){
+  let h = new Date();
+  let hora =  parseInt(h.getHours().toString())
+  return hora
+}
+
+setInterval(update_hora(), 1000)
+
+
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-let hora_end = parseInt(h.getHours() + 2)
 fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.asc`, { headers })
     .then(response => response.json())
     .then(data => {
@@ -72,8 +78,8 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.a
                             </span> 
                             
                                     `}
-                                ${parseInt(evento.time) == hora || parseInt(evento.time) + 1 == hora 
-                                    || parseInt(evento.time) + 2 == hora ? `
+                                ${parseInt(evento.time) == update_hora() || parseInt(evento.time) + 1 == update_hora() 
+                                    || parseInt(evento.time) + 2 == update_hora() ? `
                                     <span class="tag is-danger is-small py-0" 
                                         style="height: 1.25em; 
                                                font-size: 0.65rem;
