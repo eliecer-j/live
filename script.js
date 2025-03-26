@@ -44,7 +44,8 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.a
                                 ${evento.title || 'Evento deportivo'}
                             </h3>
                             <div class="tags are-small mb-0 mt-1" style="gap: 0.25rem;">
-                            ${evento.category == 'Fútbol' || evento.title.includes('Clasificación') ? `
+                            ${evento.category == 'Fútbol' || evento.title.includes('Clasificación') 
+                              || evento.title.includes('Eliminatorias') ? `
                                 
                                 <span class="tag is-info is-small py-0" 
                                     style="height: 1.25em; 
