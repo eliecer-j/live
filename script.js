@@ -84,7 +84,6 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.a
                             
                                     `}
                                 ${estaEnRango(evento.time) ? `
-                                    ${console.log(estaEnRango(evento.time))}
                                     <span class="tag is-danger is-small py-0" 
                                         style="height: 1.25em; 
                                                font-size: 0.65rem;
