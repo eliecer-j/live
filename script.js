@@ -108,8 +108,9 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.a
 
             // actualiza el badge live cada segundos
             function update_badge(){
+                let badge = document.getElementById(`badge-${evento.id}`)
                 if(estaEnRango(evento.time)){
-                    let badge = document.getElementById(`badge-${evento.id}`)
+                    
                     badge.innerHTML = `<span class="tag is-danger is-small py-0" 
                                                     style="height: 1.25em; 
                                                            font-size: 0.65rem;
@@ -122,6 +123,8 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.a
                                                     </span>
                                                     <span style="position: relative; top: -0.5px;">LIVE</span>
                                                 </span>`
+                }else{
+                  badge.innerHTML = '';
                 }
                 
             }
