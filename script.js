@@ -19,12 +19,15 @@ function estaEnRango(eventoTime) {
     return diferenciaMs >= 0 && diferenciaMs <= limiteMs; 
 }        
 
-setInterval(estaEnRango, 5000);
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.asc`, { headers })
     .then(response => response.json())
     .then(data => {
+
+      //ejecucion
         arr = data
+        let u = setInterval(estaEnRango, 5000);
+        console.log(u)
         if (data.length === 0) {  // Verificamos si no hay datos
             document.querySelector('.events-list').innerHTML = `
                 <div class="notification is-danger">
