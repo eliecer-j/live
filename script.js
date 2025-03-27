@@ -7,6 +7,8 @@ let arr; // array de datos para pasar a la pagina live.html. la funciona que los
 
 function estaEnRango(eventoTime) {
 
+  if(typeof eventoTime == 'string'){
+    
     const [eventoHoras, eventoMinutos] = eventoTime.split(":").map(Number);
 
     const ahora = new Date();
@@ -14,9 +16,12 @@ function estaEnRango(eventoTime) {
     evento.setHours(eventoHoras, eventoMinutos, 0, 0); 
 
     const diferenciaMs = ahora - evento; 
-    const limiteMs = 1.5 * 60 * 60 * 1000; 
+    const limiteMs = 2 * 60 * 60 * 1000; 
 
-    return diferenciaMs >= 0 && diferenciaMs <= limiteMs; 
+    return diferenciaMs >= 0 && diferenciaMs <= limiteMs;
+    
+  }
+ 
 }        
 
 
