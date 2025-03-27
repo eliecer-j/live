@@ -7,16 +7,20 @@
 
 
 function estaEnRango(eventoTime) {
-    const [eventoHoras, eventoMinutos] = eventoTime.split(":").map(Number);
 
-    const ahora = new Date();
-    const evento = new Date();
-    evento.setHours(eventoHoras, eventoMinutos, 0, 0); 
+    if(typeof eventoTime == 'string'){
+        const [eventoHoras, eventoMinutos] = eventoTime.split(":").map(Number);
 
-    const diferenciaMs = ahora - evento; 
-    const limiteMs = 100 * 60 * 1000; 
-
-    return diferenciaMs >= 0 && diferenciaMs <= limiteMs; 
+        const ahora = new Date();
+        const evento = new Date();
+        evento.setHours(eventoHoras, eventoMinutos, 0, 0); 
+    
+        const diferenciaMs = ahora - evento; 
+        const limiteMs = 100 * 60 * 1000; 
+    
+        return diferenciaMs >= 0 && diferenciaMs <= limiteMs; 
+    }
+    
 }        
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
