@@ -14,7 +14,7 @@ function estaEnRango(eventoTime) {
     evento.setHours(eventoHoras, eventoMinutos, 0, 0); 
 
     const diferenciaMs = ahora - evento; 
-    const limiteMs = 1.5 * 60 * 60 * 1000; 
+    const limiteMs = 100 * 60 * 1000; 
 
     return diferenciaMs >= 0 && diferenciaMs <= limiteMs; 
 }        
