@@ -3,6 +3,21 @@
 
 
 
+
+
+
+ 
+
+
+
+
+
+import { convertColombiaTimeString } from './horario.js';
+
+
+
+
+
 let arr; // array de datos para pasar a la pagina live.html. la funciona que los manda esta abajo 
 
 function estaEnRango(eventoTime) {
@@ -55,7 +70,7 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.a
                 <div class="box py-2 px-3 mb-1 has-background-dark" style="border-radius: 2px; margin-top: 0.5rem;">
                     <div class="columns is-vcentered is-mobile m-0">
                         <div class="column is-narrow has-text-weight-bold is-size-6 has-text-white" style="min-width: 45px; padding: 0 0.75rem 0 0;">
-                            ${evento.time || '--:--'}
+                            ${convertColombiaTimeString(evento.time) || '--:--'}
                         </div>
                         <div class="column" style="border-left: 1px solid #484848; padding: 0.25rem 0.75rem;">
                             <h3 class="is-size-7 has-text-weight-medium has-text-white" style="line-height: 1.2;">
@@ -109,7 +124,7 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.a
             // actualiza el badge live cada segundos
             function update_badge(){
                 let badge = document.getElementById(`badge-${evento.id}`)
-                if(estaEnRango(evento.time)){
+                if(estaEnRango(convertColombiaTimeString(evento.time))){
                     
                     badge.innerHTML = `<span class="tag is-danger is-small py-0" 
                                                     style="height: 1.25em; 
@@ -147,7 +162,7 @@ fetch(`https://wbvkmekdjbapttseyrpx.supabase.co/rest/v1/data_futbol?order=time.a
     });
 
 
-function data_id(v){
+window.data_id = function data_id(v){
     sessionStorage.setItem("data", JSON.stringify(arr)); // pasa los datos
     window.location.href = `live.html?v=${v}`
         
